@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Define a function that matches a specific bytecode."""
 
 
 def magic_calculation(a, b):
@@ -10,6 +11,5 @@ def magic_calculation(a, b):
         for i in range(4, 6):
             c = add(c, i)
         return (c)
-
     else:
-        return(sub(a, b))
+        return (sub(a, b))
