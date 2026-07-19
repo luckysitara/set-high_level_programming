@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-'''
-Write a class MyInt that inherits from int
-'''
+"""Defines MyInt class"""
 
 
 class MyInt(int):
+    """Defines an int with inverted == and != operators"""
 
-    def __eq__(self, value):
-        return int(self) != int(value)
+    def __eq__(self, other):
+        """Return the inverted equality comparison"""
+        return int(self) != int(other)
 
-    def __ne__(self, value):
-        return int(self) == int(value)
+    def __ne__(self, other):
+        """Return the inverted inequality comparison"""
+        return int(self) == int(other)
