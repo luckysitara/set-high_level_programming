@@ -17,68 +17,68 @@ array([[19, 22,  5],
        [43, 50, 11],
        [43, 50, 11]])
 
-Invalid m_a or m_b (not a list / string / scalar):
+Invalid m_a or m_b (string / scalar):
 >>> lazy_matrix_mul("ALX", [[5, 6], [7, 8]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 >>> lazy_matrix_mul([[5, 6], [7, 8]], "ALX") # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 >>> lazy_matrix_mul(1, 2) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 Empty matrices:
 >>> lazy_matrix_mul([], [[5, 6], [7, 8]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 >>> lazy_matrix_mul([[5, 6], [7, 8]], []) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 >>> lazy_matrix_mul([[]], [[5, 6], [7, 8]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 >>> lazy_matrix_mul([[5, 6], [7, 8]], [[]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 Non-number elements in matrices:
 >>> lazy_matrix_mul([['a', 2], [13, 4]], [[1, 2], [3, 4]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+TypeError:
 
 >>> lazy_matrix_mul([[1, 2], [3, 4]], [['a', 2], [13, 4]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+TypeError:
 
 Matrices with rows of different sizes:
 >>> lazy_matrix_mul([[1, 2, 3], [4, 5]], [[1, 2], [3, 4]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+TypeError:
 
 >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2, 3], [4, 5]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+TypeError:
 
 Dimension mismatch (cannot be multiplied):
 >>> lazy_matrix_mul([[1, 2, 3], [4, 5, 6]], [[1, 2], [3, 4, 5], [6, 7, 8]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4], [5, 6]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+ValueError:
 
 Missing arguments:
 >>> lazy_matrix_mul([[1, 2]]) # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+TypeError:
 
 >>> lazy_matrix_mul() # doctest: +IGNORE_EXCEPTION_DETAIL
 Traceback (most recent call last):
-Exception:
+TypeError:
