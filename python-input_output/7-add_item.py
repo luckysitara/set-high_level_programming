@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script that adds all CLI arguments to a Python list and saves to JSON file."""
+"""Adds all arguments to a Python list, then saves them to a file."""
 import sys
 
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
