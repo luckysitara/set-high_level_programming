@@ -1,20 +1,14 @@
 #!/usr/bin/python3
-"""Script that adds all arguments to a Python list, and saves them to a file."""
-from sys import argv
+"""Script that adds all CLI arguments to a Python list and saves to JSON file."""
+import sys
 
-save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
-load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
-
-
-filename = 'add_item.json'
-my_list = []
+save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 try:
-    my_list = load_from_json_file(filename)
-except Exception:
-    pass
+    items = load_from_json_file("add_item.json")
+except FileNotFoundError:
+    items = []
 
-for items in range(1, len(argv)):
-    my_list.append(argv[items])
-
-save_to_json_file(my_list, filename)
+items.extend(sys.argv[1:])
+save_to_json_file(items, "add_item.json")
