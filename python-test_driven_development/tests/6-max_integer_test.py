@@ -7,7 +7,7 @@ max_integer = __import__('6-max_integer').max_integer
 
 
 class TestMaxInteger(unittest.TestCase):
-    def empty_list_test(self):
+    def test_empty_list(self):
         self.assertEqual(max_integer([]), None)
 
     def test_max_front(self):
@@ -30,17 +30,17 @@ class TestMaxInteger(unittest.TestCase):
         my_list = [-1, -22, -3, -4]
         self.assertEqual(max_integer(my_list), -1)
 
-    def mixed_cases_test(self):
-        my_list = [2, 3, 4, 5, 'd']
-        self.assertEqual(max_integer(my_list), "d")
-
-    def isnone_test(self):
-        my_list = []
-        self.assertEqual(max_integer(my_list), None)
+    def test_one_element(self):
+        my_list = [42]
+        self.assertEqual(max_integer(my_list), 42)
 
     def test_none(self):
         with self.assertRaises(TypeError):
             max_integer(None)
 
-    def with_string(self):
+    def test_with_string(self):
         self.assertEqual(max_integer("string"), "t")
+
+
+if __name__ == '__main__':
+    unittest.main()
