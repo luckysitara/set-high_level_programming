@@ -16,4 +16,3 @@ if __name__ == "__main__":
         sha = commit.get("sha")
         author = commit.get("commit", {}).get("author", {}).get("name")
         print("{}: {}".format(sha, author))
-
