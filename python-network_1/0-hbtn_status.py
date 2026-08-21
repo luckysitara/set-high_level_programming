@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-"""Fetch https://alx-intranet.hbtn.io/status and display the response body."""
+"""Fetch https://intranet.hbtn.io/status and display the body."""
 import urllib.request
 
 
 def fetch_status():
-    """Fetch the status endpoint and print the response body details."""
-    with urllib.request.urlopen("https://alx-intranet.hbtn.io/status") as response:
+    """Fetch the status endpoint and print the response body."""
+    url = "https://intranet.hbtn.io/status"
+    with urllib.request.urlopen(url) as response:
         body = response.read()
         print("Body response:")
         print("\t- type: {}".format(type(body)))
