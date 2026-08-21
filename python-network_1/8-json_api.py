@@ -16,6 +16,8 @@ def search_user(letter):
     if not results:
         print("No result")
         return
+    if isinstance(results, dict):
+        results = [results]
     for user in results:
         print("[{}] {}".format(user.get("id"), user.get("name")))
 
